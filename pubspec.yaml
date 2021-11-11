@@ -1,7 +1,11 @@
 name: typed_serializer
-description: Convert objects from type to type using TypedDefinitions.
+description: >
+  TypedSerializer is a mixin that adds methods to convert objects
+  from type to type using typed definitions and detectors for auto
+  detect object type.
+
 repository: https://github.com/Davenchy/typed_serializer
-version: 1.0.0
+version: 1.1.0
 # homepage: https://www.example.com
 
 environment:

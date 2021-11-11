@@ -37,11 +37,11 @@ mixin TypedSerializer<R> {
   /// `deserialize` used to convert type `R` to type `T`
   ///
   /// `detect` used to check if value to be deserialized can be converted to type `T`
-  void createObjectDefinition<T>(
-    SerializerFunction<T, R> serialize,
-    DeserializerFunction<T, R> deserialize,
-    DetectorFunction<R> detect,
-  ) {
+  void createObjectDefinition<T>({
+    required SerializerFunction<T, R> serialize,
+    required DeserializerFunction<T, R> deserialize,
+    required DetectorFunction<R> detect,
+  }) {
     final definition = TypedSerializerDefinition<T, R>(
       serialize: serialize,
       deserialize: deserialize,

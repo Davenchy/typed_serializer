@@ -27,15 +27,14 @@ class SimpleServer with TypedSerializer<Uint8List> {
     send(serializedObject);
   }
 
-  Stream<T> listen<T>() {
+  Stream<Uint8List> get stream => socket.asBroadcastStream();
+
+  Stream<T> filteredStream<T>() {
     final definition = findObjectDefinition<T>();
     if (definition == null) {
       throw Exception('No definition found for type $T');
     }
 
-    return socket
-        .asBroadcastStream()
-        .where(definition.detect)
-        .map<T>(definition.deserialize);
+    return stream.where(definition.detect).map<T>(definition.deserialize);
   }
 }
